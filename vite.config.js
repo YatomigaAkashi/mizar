@@ -22,6 +22,22 @@ export default defineConfig({
       'store': pathResolve('src/store')
     }
   },
+  css: {
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
   // 强制预构建插件包
   optimizeDeps: {
     include: ['axios'],
