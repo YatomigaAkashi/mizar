@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 import './assets/tailwind.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import '@/utils/moment.zh'
 
 createApp(App)
     .use(Router)

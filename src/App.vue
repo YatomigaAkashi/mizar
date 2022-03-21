@@ -1,13 +1,8 @@
 <template>
-  <div id="app">
-    <Container :options="{ width: 3840, height: 2160 }">
-      <router-view />
-    </Container>
-  </div>
+    <router-view />
 </template>
 
-<script setup lang="ts">
-import Container from '@/components/Container.vue'
+<script>
 </script>
 
 <style lang="less">

@@ -72,7 +72,6 @@ const updateScale = () => {
 
 // 锁定浏览器缩放
 const onResize = async (e?: any) => {
-  console.log('onresize', e)
   await initSize()
   updateScale()
 }
