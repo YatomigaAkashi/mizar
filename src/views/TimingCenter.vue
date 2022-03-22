@@ -1,9 +1,11 @@
 <template>
-  <div>授时中心</div>
+  <div>
+    <DiskUsage />
+  </div>
 </template>
 
 <script setup lang="ts">
-
+import DiskUsage from '@/components/DiskUsage.vue'
 </script>
 
 <style lang="less">
