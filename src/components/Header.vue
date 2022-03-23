@@ -4,45 +4,19 @@
       中国科学院国家授时中心
     </div>
     <div class="time-week-date">
-      <div class="time">{{ timeInfo.time }}</div>
+      <div class="time">{{ time.time }}</div>
       <div class="week-date">
-        <div class="week">{{ timeInfo.week }}</div>
-        <div class="date">{{ timeInfo.date }}</div>
+        <div class="week">{{ time.week }}</div>
+        <div class="date">{{ time.date }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, reactive } from 'vue'
-import * as moment from 'moment'
+import { useTimeStore } from '@/store/time'
 
-
-const timeInfo = reactive({
-  time: '0:00',
-  week: '星期一',
-  date: '2022年01月01日'
-})
-let timeInterval: number
-
-// 更新时间
-const updateTime = () => {
-  const currentMoment = moment()
-  timeInfo.time = currentMoment.format('h:mm')
-  timeInfo.week = currentMoment.format('dddd')
-  timeInfo.date = currentMoment.format('YYYY MMMM Do')
-}
-
-onMounted(() => {
-  updateTime()
-  timeInterval = setInterval(() => {
-    updateTime()
-  }, 10000)
-})
-
-onUnmounted(() => {
-  clearInterval(timeInterval)
-})
+const time = useTimeStore()
 </script>
 
 <style lang="less" scoped>
