@@ -9,7 +9,7 @@ time.update()
 if (!timeInterval) {
   timeInterval = setInterval(() => {
     time.update()
-  }, 10000)
+  }, 1000)
 }
 
 onUnmounted(() => {
