@@ -17,12 +17,18 @@ import Container from '@/components/Container.vue'
 import Navigation from '@/components/Navigation.vue'
 import Sidebar from '@/components/Sidebar.vue'
 import Header from '@/components/Header.vue'
+import useTimeUpdate from '@/hooks/useTimeUpdate'
+import { useTimeStore } from '@/store/time'
+import { onMounted } from 'vue'
 
 // 画布基本大小
 const containerOptions = {
   width: 3840,
   height: 2160
 }
+
+// 启动时间自动更新
+useTimeUpdate()
 </script>
 
 <style lang="less" scoped>
