@@ -44,7 +44,8 @@ const containerOptions = {
     .content {
       width: 100%;
       height: calc(100% - @headerHeight);
-      background-color: #606165;
+      // background-color: #606165;
+      background-image: url('../assets/images/starfield.webp');
     }
   }
   .navigation {
