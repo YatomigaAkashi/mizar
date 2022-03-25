@@ -1,6 +1,5 @@
 <template>
   <svg width="100%" height="450px">
-
   </svg>
 </template>
 

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import * as moment from 'moment'
+import dayjs from 'dayjs'
 
 export const useTimeStore = defineStore('time', () => {
   const time = ref('0:00')
@@ -9,16 +9,14 @@ export const useTimeStore = defineStore('time', () => {
 
   // 更新时间
   const update = () => {
-    const currentMoment = moment()
-    time.value = currentMoment.format('H:mm')
-    week.value = currentMoment.format('dddd')
-    date.value = currentMoment.format('YYYY MMMM Do')
+    const now = dayjs()
+    time.value = now.format('H:mm')
+    week.value = now.format('dddd')
+    date.value = now.format('YYYY MMMM Do')
   }
 
   return {
-    time,
-    week,
-    date,
+    time, week, date,
     update
   }
 })

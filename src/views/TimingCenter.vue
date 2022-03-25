@@ -14,7 +14,6 @@ import SpaceGoal from '@/components/SpaceGoal.vue'
 import GroundStation from '@/components/GroundStation.vue'
 import WarningDisposal from '@/components/WarningDisposal.vue'
 import Title from '@/components/Title.vue'
-
 </script>
 
 <style lang="less" scoped>

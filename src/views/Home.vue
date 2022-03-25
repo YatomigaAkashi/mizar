@@ -17,13 +17,16 @@ import Container from '@/components/Container.vue'
 import Navigation from '@/components/Navigation.vue'
 import Sidebar from '@/components/Sidebar.vue'
 import Header from '@/components/Header.vue'
-import '@/hooks/useUpdateTime'
+import useTimeUpdate from '@/hooks/useTimeUpdate'
 
 // 画布基本大小
 const containerOptions = {
   width: 3840,
   height: 2160
 }
+
+//开启时间自动更新
+useTimeUpdate()
 </script>
 
 <style lang="less" scoped>
@@ -34,7 +37,7 @@ const containerOptions = {
   height: 100%;
   position: relative;
   font-size: 40px;
-  background-image: url("@/assets/background.webp");
+  background-image: url("../assets/images/starfield.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   color: #fff;
