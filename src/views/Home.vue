@@ -1,7 +1,7 @@
 <template>
   <Container
       :options="containerOptions"
-      class="container"
+      class="content"
   >
     <main class="main">
       <Header class="header" />
@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import Container from '@/components/Container.vue'
-import Navigation from '@/components/Navigation.vue'
-import Sidebar from '@/components/Sidebar.vue'
+import Container from '@/components/Base/Container.vue'
 import Header from '@/components/Header.vue'
+import Navigation from '@/components/Navigation.vue'
+import Sidebar from '@/views/Sidebar.vue'
 import useTimeUpdate from '@/hooks/useTimeUpdate'
 
 // 画布基本大小
@@ -32,7 +32,7 @@ useTimeUpdate()
 <style lang="less" scoped>
 @headerHeight: 150px; // 标题行高度
 
-.container {
+.content {
   width: 100%;
   height: 100%;
   position: relative;
@@ -70,12 +70,15 @@ useTimeUpdate()
     color: #fff;
   }
   .sidebar {
-    width: 33%;
+    width: 30%;
     height: 100%;
+    box-sizing: border-box;
+    padding: 100px;
     position: fixed;
     right: 0;
     top: 0;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(16, 29, 66, 0.3);
+    border-left: 3px solid #3a8ee6;
   }
 }
 </style>

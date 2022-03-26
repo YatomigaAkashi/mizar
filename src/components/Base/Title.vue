@@ -16,7 +16,7 @@
 </script>
 
 <style lang="less" scoped>
-@titleSize: 55px;
+@titleSize: 45px;
 
 .main {
   font-size: @titleSize;

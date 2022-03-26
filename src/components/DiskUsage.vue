@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="disk-usage">
     <v-chart class="chart" :option="option" />
   </div>
 </template>
@@ -36,7 +36,7 @@ const option: ECOption = {
 </script>
 
 <style lang="less" scoped>
-.container {
+.disk-usage {
   padding: 50px 100px;
   .chart {
     height: 500px;
