@@ -42,12 +42,12 @@ const { groundStationState } = useScreenData()
     height: 75px;
     background-color: @bck-color;
     line-height: 40px;
-    font-size: 30px;
+    font-size: 26px;
     .total-text {
       margin-left: 10px;
-      vertical-align: 18px;
+      vertical-align: 20px;
       .total-number {
-        font-size: 35px;
+        font-size: 32px;
         color: #00ebfb;
       }
     }
