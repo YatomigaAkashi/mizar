@@ -34,7 +34,7 @@ const { groundStationState } = useScreenData()
 @bck-color: rgba(132, 191, 255, 0.2);
 
 .ground-station {
-  height: 350px;
+  height: 300px;
   box-sizing: border-box;
   padding: 25px 10px 0 10px;
   margin-bottom: 30px;

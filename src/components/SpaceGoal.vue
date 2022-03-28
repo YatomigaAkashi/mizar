@@ -39,7 +39,7 @@ const { spaceGoalData } = useScreenData()
 
 <style lang="less">
 .space-goal {
-  height: 450px;
+  height: 400px;
   .text {
     font-size: 70px;
     stroke: transparent;
@@ -51,9 +51,11 @@ const { spaceGoalData } = useScreenData()
     }
     &.number {
       fill: #01D3EF;
+      font-size: 76px;
     }
     &.number-single {
       fill: #0d82ff;
+      font-size: 63px;
     }
   }
 }

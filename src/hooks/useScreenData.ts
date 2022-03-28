@@ -18,6 +18,14 @@ const spaceGoalData = {
   high: 4
 }
 
+// 授时中心 预警处置情况一览
+const warningDisposalState = {
+  waiting: 6,
+  reviewed: 10,
+  reported: 6,
+  lifted: 4
+}
+
 // 磁盘数据
 const diskData = [23, 24, 18, 25]
 
@@ -25,6 +33,7 @@ const useScreenData = () => {
   return {
     groundStationState,
     spaceGoalData,
+    warningDisposalState,
     diskData
   }
 }
