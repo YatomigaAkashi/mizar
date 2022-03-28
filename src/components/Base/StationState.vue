@@ -91,23 +91,23 @@ const data = computed(() => {
     font-size: 23px;
     text-anchor: middle;
     font-family: serif;
-    stroke-width: 2.3px;
+    stroke: transparent;
     &.number-good {
-      stroke: @goodColor;
+      fill: @goodColor;
     }
     &.number-fault {
-      stroke: @faultColor;
+      fill: @faultColor;
     }
     &.number-unknown {
-      stroke: @unknownColor;
+      fill: @unknownColor;
     }
   }
   .text {
     font-size: 17px;
     text-anchor: middle;
     dominant-baseline: middle;
-    stroke: #fff;
-    stroke-width: 0.6;
+    stroke: transparent;
+    fill: #fff;
   }
 }
 </style>
