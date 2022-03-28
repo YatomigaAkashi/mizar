@@ -25,6 +25,7 @@ dist-ssr
 
 # Files
 /dist
+.workflow
 
 # local env files
 .env.local

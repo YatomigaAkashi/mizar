@@ -1,7 +1,7 @@
 <template>
   <Container
       :options="containerOptions"
-      class="container"
+      class="content"
   >
     <main class="main">
       <Header class="header" />
@@ -13,13 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import Container from '@/components/Container.vue'
-import Navigation from '@/components/Navigation.vue'
-import Sidebar from '@/components/Sidebar.vue'
+import Container from '@/components/Base/Container.vue'
 import Header from '@/components/Header.vue'
+import Navigation from '@/components/Navigation.vue'
+import Sidebar from '@/views/Sidebar.vue'
 import useTimeUpdate from '@/hooks/useTimeUpdate'
-import { useTimeStore } from '@/store/time'
-import { onMounted } from 'vue'
 
 // 画布基本大小
 const containerOptions = {
@@ -27,31 +25,36 @@ const containerOptions = {
   height: 2160
 }
 
-// 启动时间自动更新
+//开启时间自动更新
 useTimeUpdate()
 </script>
 
 <style lang="less" scoped>
 @headerHeight: 150px; // 标题行高度
 
-.container {
+.content {
+  width: 100%;
+  height: 100%;
   position: relative;
   font-size: 40px;
-  background-color: #021c51;
+  background-image: url("../assets/images/starfield.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
   .main {
     width: 100%;
     height: 100%;
+    background-color: rgba(255, 255, 255, 0);
     .header {
       width: 100%;
       height: @headerHeight;
+      background-color: rgba(255, 255, 255, 0.1);
     }
     .content {
       width: 100%;
       height: calc(100% - @headerHeight);
-      // background-color: #606165;
-      background-image: url('../assets/images/starfield.webp');
+      background-color: rgba(255, 255, 255, 0);
     }
   }
   .navigation {
@@ -63,16 +66,19 @@ useTimeUpdate()
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    background-color: antiquewhite;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
   }
   .sidebar {
-    width: 33%;
+    width: 30%;
     height: 100%;
+    box-sizing: border-box;
+    padding: 100px;
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #67c23a;
-    opacity: 0.3;
+    background-color: rgba(16, 29, 66, 0.3);
+    border-left: 3px solid #3a8ee6;
   }
 }
 </style>

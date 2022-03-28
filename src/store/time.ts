@@ -12,7 +12,7 @@ export const useTimeStore = defineStore('time', () => {
     const now = dayjs()
     time.value = now.format('H:mm');
     week.value = now.format('dddd');
-    date.value = now.format('YYYY[年]MM[月]DD[日]');
+    date.value = now.format('YYYY[年] MM[月] DD[日]');
   }
 
   return {
@@ -20,5 +20,3 @@ export const useTimeStore = defineStore('time', () => {
     update
   }
 })
-
-
