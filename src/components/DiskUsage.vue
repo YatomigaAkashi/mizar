@@ -1,11 +1,9 @@
 <template>
-  <div class="disk-usage">
-    <v-chart class="chart" :option="option" />
-  </div>
+  <div class="disk-usage"></div>
 </template>
 
 <script setup lang="ts">
-import VChart from 'vue-echarts'
+// import VChart from 'vue-echarts'
 import { ECOption } from '@/utils/ECOption.type'
 
 const option: ECOption = {

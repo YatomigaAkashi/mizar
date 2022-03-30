@@ -19,17 +19,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps<{
+const { content } = defineProps<{
   content: string | string[]
 }>()
 
 // 支持字符串模式和数组模式
-const title = computed(() => {
-  if (typeof props.content === 'object') {
-    return props.content.join(' > ')
-  }
-  return props.content
-})
+const title = computed(() => typeof content === 'object' ? content.join(' > ') : content)
 </script>
 
 <style lang="less">

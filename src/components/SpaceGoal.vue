@@ -33,8 +33,6 @@
 import useScreenData from '@/hooks/useScreenData'
 
 const { spaceGoalData } = useScreenData()
-
-
 </script>
 
 <style lang="less">

@@ -6,13 +6,13 @@ import 'dayjs/locale/zh-cn'
 dayjs.locale('zh-cn')
 
 let timeInterval: number = 0
-let time = useTimeStore()
+let { update } = $(useTimeStore())
 
 const useTimeUpdate = () => {
-  time.update()
+  update()
   if (!timeInterval) {
     timeInterval = setInterval(() => {
-      time.update()
+      update()
     }, 1000)
   }
 
