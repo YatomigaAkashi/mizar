@@ -4,10 +4,10 @@
       中国科学院国家授时中心
     </div>
     <div class="time-week-date">
-      <div class="time">{{ time.time }}</div>
+      <div class="time">{{ time }}</div>
       <div class="week-date">
-        <div class="week">{{ time.week }}</div>
-        <div class="date">{{ time.date }}</div>
+        <div class="week">{{ week }}</div>
+        <div class="date">{{ date }}</div>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import { useTimeStore } from '@/store/time'
 
-const time = useTimeStore()
+const { time, week, date } = $(useTimeStore())
 </script>
 
 <style lang="less" scoped>

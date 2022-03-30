@@ -7,7 +7,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, reactive, nextTick, ref } from 'vue'
 import useCurrentInstance from '@/hooks/useCurrentInstance'
 import { ComponentPublicInstance } from '@vue/runtime-core'
 
@@ -19,13 +18,13 @@ const props = defineProps<{
 }>()
 
 const refName = 'container'
-let ready = ref(false)
+let ready = $ref(false)
 let ctx: ComponentPublicInstance // Vue实例
 let dom: HTMLDivElement // Container实例
 let observer: MutationObserver | null// Container实例监听器
 
-const domSize = reactive({ width: 0, height: 0 })
-const originSize = reactive({ width: 0, height: 0 })
+const domSize = $ref({ width: 0, height: 0 })
+const originSize = $ref({ width: 0, height: 0 })
 
 // 初始化各种尺寸
 const initSize = () => {
@@ -97,14 +96,14 @@ const removeMutationObserver = () => {
 }
 
 onMounted(async () => {
-  ready.value = false
+  ready = false
   ctx = useCurrentInstance().ctx as ComponentPublicInstance
   await initSize()
   updateSize()
   updateScale()
   window.addEventListener('resize', onResize)
   initMutationObserver()
-  ready.value = true
+  ready = true
 })
 
 onUnmounted(() =>{
