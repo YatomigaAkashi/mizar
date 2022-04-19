@@ -4,7 +4,6 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Breadcrumb: typeof import('./src/components/Base/Breadcrumb.vue')['default']
     Container: typeof import('./src/components/Base/Container.vue')['default']
     DataTransport: typeof import('./src/components/DataTransport.vue')['default']
     DiskUsage: typeof import('./src/components/DiskUsage.vue')['default']
@@ -13,12 +12,18 @@ declare module 'vue' {
     GroundStation: typeof import('./src/components/GroundStation.vue')['default']
     GroundStationInfo: typeof import('./src/components/GroundStationInfo.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
+    Home: typeof import('./src/views/Home.vue')['default']
+    MizarBreadcrumb: typeof import('./src/components/Base/MizarBreadcrumb.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     SatelliteList: typeof import('./src/components/SatelliteList.vue')['default']
+    Sidebar: typeof import('./src/views/Sidebar.vue')['default']
     SpaceGoal: typeof import('./src/components/SpaceGoal.vue')['default']
+    SpaceTarget: typeof import('./src/views/SpaceTarget.vue')['default']
     StationState: typeof import('./src/components/Base/StationState.vue')['default']
+    TimingCenter: typeof import('./src/views/TimingCenter.vue')['default']
     Title: typeof import('./src/components/Base/Title.vue')['default']
     WarningDisposal: typeof import('./src/components/WarningDisposal.vue')['default']
+    WorkingStatus: typeof import('./src/views/WorkingStatus.vue')['default']
   }
 }
 

@@ -62,6 +62,15 @@ const groundStationInfo = {
   'G/T': 'C频段>=32dB/K，S频段>=25dB/K'
 }
 
+// 地面站 卫星信息
+const targetSatelliteList = [
+  { focus: 'xxxx', type: '高轨', tle: 'xxx', spectrum: 'xxx' },
+  { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' },
+  { focus: 'xxxx', type: '低轨', tle: 'xxx', spectrum: 'xxx' },
+  { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' },
+  { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' }
+]
+
 // 磁盘数据
 const diskData = [23, 24, 18, 25]
 
@@ -72,6 +81,7 @@ const useScreenData = () => {
     warningDisposalState,
     warningDisposalList,
     groundStationInfo,
+    targetSatelliteList,
     diskData
   }
 }

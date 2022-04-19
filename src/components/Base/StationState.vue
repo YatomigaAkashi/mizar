@@ -23,8 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 enum StateEnum {
   'good' = 'good',
   'fault' = 'fault',

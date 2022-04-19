@@ -13,10 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import Container from '@/components/Base/Container.vue'
-import Header from '@/components/Header.vue'
-import Navigation from '@/components/Navigation.vue'
-import Sidebar from '@/views/Sidebar.vue'
 import useTimeUpdate from '@/hooks/useTimeUpdate'
 
 // 画布基本大小

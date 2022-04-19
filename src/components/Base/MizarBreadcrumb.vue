@@ -17,17 +17,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const { content } = defineProps<{
   content: string | string[]
 }>()
 
 // 支持字符串模式和数组模式
-const title = computed(() => typeof content === 'object' ? content.join(' > ') : content)
+const title = $computed(() => typeof content === 'object' ? content.join(' > ') : content)
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .breadcrumb {
   margin-bottom: 60px;
   .text {

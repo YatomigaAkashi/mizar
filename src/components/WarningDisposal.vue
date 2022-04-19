@@ -45,7 +45,6 @@
 import useScreenData from '@/hooks/useScreenData'
 
 const { warningDisposalState, warningDisposalList } = useScreenData()
-
 </script>
 
 <style lang="less" scoped>

@@ -5,7 +5,7 @@
  */
 
 
-import { ComponentInternalInstance, getCurrentInstance } from 'vue'
+import { ComponentInternalInstance } from 'vue'
 
 export default function useCurrentInstance() {
   const { proxy, appContext } = getCurrentInstance() as ComponentInternalInstance
