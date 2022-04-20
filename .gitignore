@@ -30,3 +30,7 @@ dist-ssr
 # local env files
 .env.local
 .env.*.local
+
+# unpugin auto import
+auto-imports.d.ts
+components.d.ts

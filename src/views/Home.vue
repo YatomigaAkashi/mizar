@@ -8,7 +8,7 @@
       <div class="content"></div>
     </main>
     <Navigation class="navigation" />
-    <Sidebar class="sidebar" />
+    <SideBar class="sidebar" />
   </Container>
 </template>
 

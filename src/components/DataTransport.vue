@@ -15,22 +15,18 @@
       <path :d="path" fill="none" stroke="#00f0ff" stroke-width="4" stroke-dasharray="3 2.55" />
       <text x="50" y="50" fill="#00f0ff" text-anchor="middle" dominant-baseline="middle" font-size="13">{{ ratio }}%</text>
     </svg>
-    <div class="info">总{{ total }}KB，已传输{{ done }}KB</div>
+    <div class="info">总{{ total }}KB，已传输{{ value }}KB</div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Props {
-  total: number
-  done: number
-}
+import useSlow from '@/hooks/useSlow'
 
-const {
-  done,
-  total
-} = defineProps<Props>()
+const total = $ref(1024)
+let done = $ref(300)
+const { value } = $(useSlow(() => done))
 
-const ratio = $computed(() => Math.floor(done / total * 100))
+const ratio = $computed(() => Math.floor(value / total * 100))
 const deg = $computed(() => ratio / 100 * 2 * Math.PI)
 const path = $computed(() => {
   let arc = ratio > 50 ? 1 : 0
@@ -39,6 +35,10 @@ const path = $computed(() => {
   ratio >= 100 ? dx = dx - 0.00001: null
   return `M 50 13 A 37 37 0 ${arc} 1 ${dx} ${dy}`
 })
+
+setInterval(() => {
+  done = Math.floor(Math.random() * total)
+}, 2000)
 </script>
 
 <style lang="less" scoped>
