@@ -11,7 +11,7 @@
       <circle cx="50" cy="50" r="30" stroke="#0bc9d6" fill="none" />
       <circle cx="50" cy="50" r="27.5" stroke="#0bc9d6" fill="none" stroke-dasharray="4" />
       <circle cx="50" cy="50" r="41" stroke="none" fill="url(#grad1)" />
-<!--      <circle cx="50" cy="50" r="37" stroke="#00f0ff" stroke-width="4" fill="none" stroke-dasharray="3 2.55" transform="rotate(-90, 50, 50)" />-->
+<!--  备选实现方案   <circle cx="50" cy="50" r="37" stroke="#00f0ff" stroke-width="4" fill="none" stroke-dasharray="3 2.55" transform="rotate(-90, 50, 50)" />-->
       <path :d="path" fill="none" stroke="#00f0ff" stroke-width="4" stroke-dasharray="3 2.55" />
       <text x="50" y="50" fill="#00f0ff" text-anchor="middle" dominant-baseline="middle" font-size="13">{{ ratio }}%</text>
     </svg>
@@ -22,10 +22,12 @@
 <script setup lang="ts">
 import useSlow from '@/hooks/useSlow'
 
+// 初始化数据
 const total = $ref(1024)
-let done = $ref(300)
+let done = $ref(0)
 const { value } = $(useSlow(() => done))
 
+// 计算百分比、角度、弧路径
 const ratio = $computed(() => Math.floor(value / total * 100))
 const deg = $computed(() => ratio / 100 * 2 * Math.PI)
 const path = $computed(() => {
@@ -36,6 +38,8 @@ const path = $computed(() => {
   return `M 50 13 A 37 37 0 ${arc} 1 ${dx} ${dy}`
 })
 
+// 模拟更新
+done = 300
 setInterval(() => {
   done = Math.floor(Math.random() * total)
 }, 2000)

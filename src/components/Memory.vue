@@ -9,11 +9,12 @@
 
 <script setup lang="ts">
 import VChart from 'vue-echarts'
+import { ECOption } from '@/utils/ECOption.type'
 
 const total = $ref(30)
 let used = $ref(21)
 
-const option = $ref({
+const option: ECOption = $ref({
   series: [
     {
       type: 'gauge',
@@ -73,7 +74,7 @@ setInterval(() => {
 }, 2000)
 
 watch(() => used, () => {
-  option.series[0].data[0].value = Math.floor(used / total * 100)
+  (option as any).series[0].data[0].value = Math.floor(used / total * 100)
 })
 </script>
 

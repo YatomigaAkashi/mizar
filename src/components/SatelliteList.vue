@@ -1,20 +1,22 @@
 <template>
-  <el-scrollbar class="table">
+  <div class="table">
     <div class="header">
-     <div>卫星编号</div>
+      <div>卫星编号</div>
       <div>重点关注</div>
       <div>轨道类型</div>
       <div>TLE</div>
       <div>频谱图</div>
     </div>
-    <div class="line" :line="`line-${index % 2}`" v-for="(item, index) in targetSatelliteList">
-      <div>{{ index + 1 }}</div>
-      <div>{{ item.focus }}</div>
-      <div>{{ item.type }}</div>
-      <div>{{ item.tle }}</div>
-      <div>{{ item.spectrum }}</div>
-    </div>
-  </el-scrollbar>
+    <el-scrollbar class="list">
+      <div class="line" :line="`line-${index % 2}`" v-for="(item, index) in targetSatelliteList">
+        <div>{{ index + 1 }}</div>
+        <div>{{ item.focus }}</div>
+        <div>{{ item.type }}</div>
+        <div>{{ item.tle }}</div>
+        <div>{{ item.spectrum }}</div>
+      </div>
+    </el-scrollbar>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -28,10 +30,9 @@ const { targetSatelliteList } = useScreenData()
 
 .table {
   width: 100%;
-  height: 340px;
   font-size: 30px;
   .header {
-    margin-top: 20px;
+    margin-top: 10px;
     color: #03cadb;
   }
   .header, .line {
@@ -50,6 +51,9 @@ const { targetSatelliteList } = useScreenData()
   }
   .header, div[line='line-1'] {
     background: @bck-color;
+  }
+  .list {
+    height: 305px;
   }
 }
 </style>

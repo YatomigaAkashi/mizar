@@ -68,6 +68,7 @@ const targetSatelliteList = [
   { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' },
   { focus: 'xxxx', type: '低轨', tle: 'xxx', spectrum: 'xxx' },
   { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' },
+  { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' },
   { focus: 'xxxx', type: '中轨', tle: 'xxx', spectrum: 'xxx' }
 ]
 
