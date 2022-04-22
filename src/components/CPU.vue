@@ -42,6 +42,7 @@ const option: ECOption = $ref({
 
 <style lang="less">
 .cpu {
-  height: 400px
+  height: 400px;
+  margin: 30px 0;
 }
 </style>

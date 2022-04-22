@@ -5,6 +5,7 @@
   <Title>CPU使用情况</Title>
   <CPU />
   <Title>磁盘使用情况</Title>
+  <Disk />
 </template>
 
 <script setup lang="ts">
