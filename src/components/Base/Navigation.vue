@@ -21,6 +21,22 @@
 </template>
 
 <script setup lang="ts">
+import useCurrentInstance from '@/hooks/useCurrentInstance'
+import { useSideBarStore } from '@/store/sidebar'
+
+const { toggleShow } = $(useSideBarStore())
+
+const { ctx } = useCurrentInstance()
+const router = ctx.$router
+watch(
+    () => router.currentRoute.value.path, val => {
+      if (val.includes('/space-target')) {
+        toggleShow(false)
+        return
+      }
+      toggleShow(true)
+    },
+)
 </script>
 
 <style lang="less">

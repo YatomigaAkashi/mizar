@@ -6,12 +6,13 @@
 
 
 import { ComponentInternalInstance } from 'vue'
+import { ComponentPublicInstance } from '@vue/runtime-core'
 
 export default function useCurrentInstance() {
   const { proxy, appContext } = getCurrentInstance() as ComponentInternalInstance
   const globalProperties = appContext.config.globalProperties
   return {
-    ctx: proxy,
+    ctx: proxy as ComponentPublicInstance,
     globalProperties
   }
 }
