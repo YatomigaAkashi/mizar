@@ -52,7 +52,7 @@ const { warningDisposalState, warningDisposalList } = useScreenData()
 @bck-color-shallower: rgba(132, 191, 255, 0.05);
 
 .warning-disposal {
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 32px;
   .statistics {
     display: flex;

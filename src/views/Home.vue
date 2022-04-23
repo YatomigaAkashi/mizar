@@ -14,6 +14,8 @@
 
 <script setup lang="ts">
 import useTimeUpdate from '@/hooks/useTimeUpdate'
+import useCurrentInstance from '@/hooks/useCurrentInstance'
+import { useSideBarStore } from '@/store/sidebar'
 
 // 画布基本大小
 const containerOptions = {
@@ -23,6 +25,20 @@ const containerOptions = {
 
 //开启时间自动更新
 useTimeUpdate()
+
+// 监听路由变花
+const watchRoute = (path: string) => {
+  if (path.includes('/space-target')) {
+    toggleShow(false)
+    return
+  }
+  toggleShow(true)
+}
+const { toggleShow } = $(useSideBarStore())
+const { ctx } = useCurrentInstance()
+const path = $computed(() => ctx.$router.currentRoute.value.path)
+watchRoute(path)
+watch(() => path, watchRoute)
 </script>
 
 <style lang="less" scoped>
@@ -54,16 +70,14 @@ useTimeUpdate()
     }
   }
   .navigation {
-    width: 300px;
+    width: 260px;
     height: 1500px;
     position: fixed;
     left: 150px;
     top: 400px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
+    border: 2px solid #3a8ee6;
+    box-shadow: 20px 20px 20px rgba(28, 89, 157, 0.5) inset, -20px -20px 20px rgba(28, 89, 157, 0.5) inset;
   }
   .sidebar {
     width: 30%;

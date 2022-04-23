@@ -1,5 +1,8 @@
 import { defineStore } from 'pinia'
 import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
+
+dayjs.locale('zh-cn')
 
 export const useTimeStore = defineStore('time', () => {
   let time = $ref('0:00')

@@ -15,17 +15,20 @@
       <path :d="path" fill="none" stroke="#00f0ff" stroke-width="4" stroke-dasharray="3 2.55" />
       <text x="50" y="50" fill="#00f0ff" text-anchor="middle" dominant-baseline="middle" font-size="13">{{ ratio }}%</text>
     </svg>
-    <div class="info">总{{ total }}KB，已传输{{ value }}KB</div>
+    <div class="info">总{{ total }}KB，已传输{{ Math.floor(value) }}KB</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import useSlow from '@/hooks/useSlow'
+import { useTransition, TransitionPresets } from '@vueuse/core'
 
 // 初始化数据
 const total = $ref(1024)
 let done = $ref(0)
-const { value } = $(useSlow(() => done))
+const value = $(useTransition($$(done), {
+  duration: 1000,
+  transition: TransitionPresets.linear,
+}))
 
 // 计算百分比、角度、弧路径
 const ratio = $computed(() => Math.floor(value / total * 100))
