@@ -13,22 +13,22 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'timing-center',
         name: 'TimingCenter',
-        component: () => import('../views/TimingCenter.vue')
+        component: () => import('../components/SideBar/TimingCenter.vue')
       },
       {
         path: 'space-target',
         name: 'SpaceTarget',
-        component: () => import('../views/SpaceTarget.vue')
+        component: () => import('../components/SideBar/SpaceTarget.vue')
       },
       {
         path: 'ground-station',
         name: 'GroundStation',
-        component: () => import('../views/GroundStation.vue')
+        component: () => import('../components/SideBar/GroundStation.vue')
       },
       {
         path: 'working-status',
         name: 'WorkingStatus',
-        component: () => import('../views/WorkingStatus.vue')
+        component: () => import('../components/SideBar/WorkingStatus.vue')
       },
     ]
   }

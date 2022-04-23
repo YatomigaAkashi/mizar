@@ -97,7 +97,7 @@ const removeMutationObserver = () => {
 
 onMounted(async () => {
   ready = false
-  ctx = useCurrentInstance().ctx as ComponentPublicInstance
+  ctx = useCurrentInstance().ctx
   await initSize()
   updateSize()
   updateScale()

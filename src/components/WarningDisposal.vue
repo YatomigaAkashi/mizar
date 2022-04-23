@@ -31,10 +31,10 @@
         </thead>
       </table>
       <el-scrollbar height="360px">
-        <div class="content" v-for="(item, index) in data">
+        <div class="content" v-for="(item, index) in warningDisposalList">
           <div class="serial">{{ index + 1 }}</div>
           <div style="width: 2px;background: transparent;"></div>
-          <div class="info">{{ item.msg }}&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #02d4e6">详情>></span></div>
+          <div class="info">{{ item.msg }}&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #02d4e6;cursor: pointer;">详情>></span></div>
         </div>
       </el-scrollbar>
     </div>
@@ -44,33 +44,7 @@
 <script setup lang="ts">
 import useScreenData from '@/hooks/useScreenData'
 
-const { warningDisposalState } = useScreenData()
-const data = [
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-  {
-    msg: '2022-01-01 检测到与XX软件通信异常...'
-  },
-]
+const { warningDisposalState, warningDisposalList } = useScreenData()
 </script>
 
 <style lang="less" scoped>
@@ -78,7 +52,7 @@ const data = [
 @bck-color-shallower: rgba(132, 191, 255, 0.05);
 
 .warning-disposal {
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 32px;
   .statistics {
     display: flex;

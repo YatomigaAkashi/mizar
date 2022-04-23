@@ -16,7 +16,7 @@
         </radialGradient>
       </defs>
       <circle cx="50" cy="35" r="23" :class="data.circleClass"/>
-      <text x="50" y="43" :class="data.numberClass">{{ number }}</text>
+      <text x="50" y="43" :class="data.numberClass">{{ props.number }}</text>
       <text x="50" y="81" class="text">{{ data.text }}</text>
     </svg>
   </div>
@@ -29,32 +29,33 @@ enum StateEnum {
   'unknown' = 'unknown'
 }
 
-interface Props {
-  number?: number
-  state?: StateEnum
-}
+const props = withDefaults(
+  defineProps<{
+    number?: number,
+    state?: StateEnum
+  }>(),
+  {
+    number: 0,
+    state: 'unknown' as StateEnum,
+  },
+)
 
-const {
-  number = 0,
-  state = 'unknown'
-} = defineProps<Props>()
-
-const data = $computed(() => {
-  if (state === StateEnum.good) {
+const data = computed(() => {
+  if (props.state === StateEnum.good) {
     return {
       text: '连接良好',
       circleClass: 'circle circle-good',
       numberClass: 'number number-good'
     }
   }
-  if (state === StateEnum.fault) {
+  if (props.state === StateEnum.fault) {
     return {
       text: '故障',
       circleClass: 'circle circle-fault',
       numberClass: 'number number-fault'
     }
   }
-  if (state === StateEnum.unknown) {
+  if (props.state === StateEnum.unknown) {
     return {
       text: '未连通',
       circleClass: 'circle circle-unknown',

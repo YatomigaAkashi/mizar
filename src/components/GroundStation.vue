@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import StationState from '@/components/Base/StationState.vue'
 import useScreenData from '@/hooks/useScreenData'
 
 const { groundStationState } = useScreenData()

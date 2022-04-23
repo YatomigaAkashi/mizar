@@ -8,11 +8,9 @@
       <line x1="97.5%" y1="15" x2="100%" y2="15" style="stroke: #84bfff;stroke-width: 3;stroke-opacity: 1.0" />
     </svg>
   </div>
-
 </template>
 
 <script setup lang="ts">
-
 </script>
 
 <style lang="less" scoped>

@@ -4,18 +4,28 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Breadcrumb: typeof import('./src/components/Base/Breadcrumb.vue')['default']
     Container: typeof import('./src/components/Base/Container.vue')['default']
-    DiskUsage: typeof import('./src/components/DiskUsage.vue')['default']
+    CPU: typeof import('./src/components/CPU.vue')['default']
+    DataTransport: typeof import('./src/components/DataTransport.vue')['default']
+    Disk: typeof import('./src/components/Disk.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     GroundStation: typeof import('./src/components/GroundStation.vue')['default']
-    Header: typeof import('./src/components/Header.vue')['default']
-    Navigation: typeof import('./src/components/Navigation.vue')['default']
+    GroundStationInfo: typeof import('./src/components/GroundStationInfo.vue')['default']
+    Header: typeof import('./src/components/Base/Header.vue')['default']
+    Home: typeof import('./src/views/Home.vue')['default']
+    Memory: typeof import('./src/components/Memory.vue')['default']
+    MizarBreadcrumb: typeof import('./src/components/Base/MizarBreadcrumb.vue')['default']
+    Navigation: typeof import('./src/components/Base/Navigation.vue')['default']
+    SatelliteList: typeof import('./src/components/SatelliteList.vue')['default']
+    SideBar: typeof import('./src/components/Base/SideBar.vue')['default']
     SpaceGoal: typeof import('./src/components/SpaceGoal.vue')['default']
+    SpaceTarget: typeof import('./src/components/SideBar/SpaceTarget.vue')['default']
     StationState: typeof import('./src/components/Base/StationState.vue')['default']
+    TimingCenter: typeof import('./src/components/SideBar/TimingCenter.vue')['default']
     Title: typeof import('./src/components/Base/Title.vue')['default']
     WarningDisposal: typeof import('./src/components/WarningDisposal.vue')['default']
+    WorkingStatus: typeof import('./src/components/SideBar/WorkingStatus.vue')['default']
   }
 }
 
