@@ -4,15 +4,16 @@
       :option="option"
     />
     <div class="info">内存{{ total }}G，已使用{{ used }}G</div>
+
   </div>
+
 </template>
 
 <script setup lang="ts">
 import VChart from 'vue-echarts'
-import { ECOption } from '@/utils/ECOption.type'
-
-const total = $ref(30)
-let used = $ref(21)
+import { ECOption } from '@/typings/ECOption.type'
+import useMyFetch from '@/hooks/useMyFetch'
+import { EquipmentInfo } from '@/typings'
 
 const option: ECOption = $ref({
   series: [
@@ -62,20 +63,25 @@ const option: ECOption = $ref({
       },
       data: [
         {
-          value: 70
+          value: 0
         }
       ]
     }
   ]
 })
 
-setInterval(() => {
-  used = +(Math.random() * total).toFixed(1)
-}, 2000)
+interface Props{
+  total: number
+  ratio: number
+}
 
-watch(() => used, () => {
-  (option as any).series[0].data[0].value = Math.floor(used / total * 100)
-})
+const {
+  total = 0,
+  ratio = 0
+} = defineProps<Props>()
+
+const used = $computed(() => Math.floor(total * ratio / 100))
+watch(() => ratio, value => (option as any).series[0].data[0].value = value)
 </script>
 
 <style lang="less" scoped>

@@ -8,8 +8,8 @@
 
 <script setup lang="ts">
 import VChart from 'vue-echarts'
+import { ECOption } from '@/typings/ECOption.type'
 import { useCpuStore } from '@/store/cpu'
-import { ECOption } from '@/utils/ECOption.type'
 
 const { usageList } = $(useCpuStore())
 
