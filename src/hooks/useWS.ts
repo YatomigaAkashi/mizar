@@ -11,7 +11,7 @@ const WSOptions: WebSocketOptions = {
 const { data: ws_data } = $(useWebSocket('ws://localhost:8080', WSOptions))
 
 // 数据管理
-const { update } = useWorkStatusStore()  // 工作状态
+const { update } = $(useWorkStatusStore())  // 工作状态
 
 // 启动监听
 const useWS = () => {

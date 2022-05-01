@@ -40,8 +40,7 @@ const watchRoute = (path: string) => {
 }
 const { toggleShow } = $(useSideBarStore())
 const { ctx } = useCurrentInstance()
-const path = $computed(() => ctx.$router.currentRoute.value.path)
-watchEffect(() => watchRoute(path))
+watchEffect(() => watchRoute(ctx.$router.currentRoute.value.path))
 </script>
 
 <style lang="less" scoped>

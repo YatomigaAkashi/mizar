@@ -13,30 +13,21 @@ function initWorkStatus(): WorkStatus {
   }
 }
 
-export const useWorkStatusStore = defineStore('workStatus', () => {
-  let workStatusList: WorkStatus[] = $ref([])
-  let workStatus: WorkStatus = $ref(initWorkStatus())
+const { data } = useMyFetch('/preWorkStatus') as any
 
-  // 初始化数据
-  const init = (data: WorkStatus[]) => {
-    if(data && data?.length !== 0) {
-      workStatusList = data
-      workStatus = data[data.length - 1]
-    }
-  }
+export const useWorkStatusStore = defineStore('workStatus', () => {
+  let workStatusList: WorkStatus[] = $ref(data || [])
+  let workStatus: WorkStatus = $ref(initWorkStatus())
 
   // 更新数据
   const update = (data: WorkStatus) => {
-    workStatusList.push(data)
     workStatusList.shift()
+    workStatusList = [...workStatusList, data]
     workStatus = data
   }
 
-  const { data } = useMyFetch('/preWorkStatus')
-  watch(data, value => init(value as any))
-
   return $$({
     workStatusList, workStatus,
-    init, update
+    update
   })
 })

@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Container: typeof import('./src/components/Base/Container.vue')['default']
+    Cpu: typeof import('./src/components/Cpu.vue')['default']
     CPU: typeof import('./src/components/CPU.vue')['default']
     DataTransport: typeof import('./src/components/DataTransport.vue')['default']
     Disk: typeof import('./src/components/Disk.vue')['default']

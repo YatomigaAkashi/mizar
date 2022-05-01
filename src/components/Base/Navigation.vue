@@ -112,8 +112,7 @@ const toggleFill = (path: string) => {
 
 // 监听路由变化，修改图标颜色
 const { ctx } = useCurrentInstance()
-const path = $computed(() => ctx.$router.currentRoute.value.path)
-watchEffect(() => toggleFill(path))
+watchEffect(() => toggleFill(ctx.$router.currentRoute.value.path))
 </script>
 
 <style lang="less">
