@@ -13,20 +13,48 @@
             d="M409.856 850.816c-26.752 0-51.968-10.368-70.912-29.312-18.944-18.944-29.312-44.032-29.312-70.912s10.368-51.968 29.312-70.912c39.04-39.04 102.656-39.04 141.696 0 39.04 39.04 39.04 102.656 0 141.696a99.2256 99.2256 0 0 1-70.784 29.44z m0-149.248a48.896 48.896 0 0 0-49.024 49.024c0 13.056 5.12 25.344 14.336 34.688 18.56 18.56 50.816 18.56 69.376 0a49.216 49.216 0 0 0 0-69.376 48.832 48.832 0 0 0-34.688-14.336z"
             p-id="7861" fill="#ffffff"></path>
       </svg>
-      <span class="total-text">总计地面站：<span class="total-number">{{ groundStationState.total }}</span>个</span>
+      <span class="total-text">总计地面站：<span class="total-number">{{ total }}</span>个</span>
     </div>
     <div class="state">
-      <StationState class="station-state" state="good" :number="groundStationState.good"  />
-      <StationState class="station-state" state="fault" :number="groundStationState.fault" />
-      <StationState class="station-state" state="unknown" :number="groundStationState.unknown" />
+      <StationState class="station-state" state="good" :number="good"  />
+      <StationState class="station-state" state="fault" :number="fault" />
+      <StationState class="station-state" state="unknown" :number="unknown" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import useScreenData from '@/hooks/useScreenData'
+import useMyFetch from '@/hooks/useMyFetch'
+import { GroundStation, GroundStationStatus } from '@/typings'
 
-const { groundStationState } = useScreenData()
+let total = $ref(0)
+let good = $ref(0)
+let fault = $ref(0)
+let unknown = $ref(0)
+
+const update = (data: GroundStation[]) => {
+  if(data) {
+    total = data.length;
+    for (const item of data) {
+      switch (item.status) {
+        case GroundStationStatus.Good:
+          good++
+          break
+        case GroundStationStatus.Bad:
+          fault++
+          break
+        case GroundStationStatus.Unknown:
+          unknown++
+          break
+        default:
+      }
+    }
+  }
+}
+
+const { data } = useMyFetch('/groundStation')
+watch(data as any, update)
 </script>
 
 <style lang="less" scoped>

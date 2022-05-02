@@ -4,16 +4,12 @@
       :option="option"
     />
     <div class="info">内存{{ total }}G，已使用{{ used }}G</div>
-
   </div>
-
 </template>
 
 <script setup lang="ts">
 import VChart from 'vue-echarts'
 import { ECOption } from '@/typings/ECOption.type'
-import useMyFetch from '@/hooks/useMyFetch'
-import { EquipmentInfo } from '@/typings'
 
 const option: ECOption = $ref({
   series: [
