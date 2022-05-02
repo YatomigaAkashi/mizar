@@ -8,6 +8,7 @@
       <div class="content"></div>
     </main>
     <Navigation class="navigation" />
+    <MapShow class="mapshow" />
     <SideBar class="sidebar" />
   </Container>
 </template>
@@ -16,6 +17,8 @@
 import useTimeUpdate from '@/hooks/useTimeUpdate'
 import useCurrentInstance from '@/hooks/useCurrentInstance'
 import { useSideBarStore } from '@/store/sidebar'
+
+import MapShow from '../components/Base/MapShow.vue'
 
 // 画布基本大小
 const containerOptions = {
@@ -78,6 +81,7 @@ watch(() => path, watchRoute)
     color: #fff;
     border: 2px solid #3a8ee6;
     box-shadow: 20px 20px 20px rgba(28, 89, 157, 0.5) inset, -20px -20px 20px rgba(28, 89, 157, 0.5) inset;
+    z-index: 1;
   }
   .sidebar {
     width: 30%;
