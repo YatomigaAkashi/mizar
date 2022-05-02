@@ -23,6 +23,7 @@ declare module 'vue' {
     SpaceGoal: typeof import('./src/components/SpaceGoal.vue')['default']
     SpaceTarget: typeof import('./src/components/SideBar/SpaceTarget.vue')['default']
     StationState: typeof import('./src/components/Base/StationState.vue')['default']
+    Test: typeof import('./src/views/Test.vue')['default']
     TimingCenter: typeof import('./src/components/SideBar/TimingCenter.vue')['default']
     Title: typeof import('./src/components/Base/Title.vue')['default']
     WarningDisposal: typeof import('./src/components/WarningDisposal.vue')['default']

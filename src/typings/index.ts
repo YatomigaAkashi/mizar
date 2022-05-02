@@ -12,7 +12,7 @@ export enum State {
 export enum GroundStationStatus {
   Good = 1,  // 良好
   Bad = 2,  // 故障
-  Undefined = 3,  // 未连通
+  Unknown = 3,  // 未连通
 }
 
 export enum TrackType {
@@ -34,12 +34,19 @@ export enum ModulationType {
   SingleCarrier,
 }
 
+export enum WarnType {
+  waiting,
+  review,
+  report,
+  remove
+}
+
 // 地面站
 export interface GroundStation {
-  station_code: string
-  station_name: string
-  location: string
-  status: GroundStationStatus
+  station_code: string  // 地面站编码
+  station_name: string  // 地面站名称
+  location: string  // 地面站坐标，经纬度（131.345E，37.234N）
+  status: GroundStationStatus  // 地面站状态：1-良好、2-故障、3-未联通
   trans_status: Status  // 0 未传输，1 正在传输中
 }
 
@@ -47,6 +54,7 @@ export interface GroundStation {
 export interface SpaceTarget {
   target_code: string
   is_fouces: Status // 0 不是，1 是
+  track_type: TrackType  // 轨道类型,高、中、低轨
   last_observe_time: string
 }
 
@@ -54,7 +62,7 @@ export interface SpaceTarget {
 export interface SpaceTargetBase {
   target_code: string
   tle_info: string
-  track_type: TrackType
+  track_type: TrackType  // 轨道类型,高、中、低轨
   track_paras: string
   observe_data: string
   observe_start_time: string
@@ -119,9 +127,9 @@ export interface WorkStatus {
 
 // 预警信息
 export interface WarningInfo {
-  warn_code: string
-  warn_data: string
-  warn_data_type: string
-  warn_condition: string
-  warn_type: string
+  warn_code: string  // 预警编码
+  warn_data: string  // 警告值
+  warn_data_type: WarnType  // 警告值类型
+  warn_condition: string  // 警告条件阈值
+  warn_type: 1 | 2  // 出发警告类型，1-出情；2-新目标
 }
