@@ -18,21 +18,47 @@
       <use xlink:href="#circle-single" x="310" y="280"/>
       <use xlink:href="#circle-single" x="-420" y="-20"/>
       <text class="text" x="500" y="460">空间目标</text>
-      <text class="text number" x="500" y="560">{{ spaceGoalData.total }}</text>
+      <text class="text number" x="500" y="560">{{ total }}</text>
       <text class="text single" x="820" y="230">高轨</text>
-      <text class="text single number-single" x="820" y="305">{{ spaceGoalData.high }}</text>
+      <text class="text single number-single" x="820" y="305">{{ high }}</text>
       <text class="text single" x="810" y="750">低轨</text>
-      <text class="text single number-single" x="820" y="825">{{ spaceGoalData.low }}</text>
+      <text class="text single number-single" x="820" y="825">{{ low }}</text>
       <text class="text single" x="80" y="450">中轨</text>
-      <text class="text single number-single" x="80" y="525">{{ spaceGoalData.middle }}</text>
+      <text class="text single number-single" x="80" y="525">{{ middle }}</text>
     </svg>
   </div>
 </template>
 
 <script setup lang="ts">
-import useScreenData from '@/hooks/useScreenData'
+import useMyFetch from '@/hooks/useMyFetch'
+import { TrackType, SpaceTarget } from '@/typings'
 
-const { spaceGoalData } = useScreenData()
+let total = $ref(0)
+let low = $ref(0)
+let middle = $ref(0)
+let high = $ref(0)
+
+const update = (data: SpaceTarget[]) => {
+  if(data) {
+    total = data.length
+    for (const item of data) {
+      switch (item.track_type) {
+        case TrackType.Low:
+          low++
+          break
+        case TrackType.Middle:
+          middle++
+          break
+        case TrackType.High:
+          high++
+          break
+      }
+    }
+  }
+}
+
+const { data } = useMyFetch('/spaceGoal')
+watch(data as any, update)
 </script>
 
 <style lang="less">

@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import VChart from 'vue-echarts'
-import { ECOption } from '@/utils/ECOption.type'
+import { ECOption } from '@/typings/ECOption.type'
 
 const option: ECOption = $ref({
   grid: {
@@ -37,7 +37,7 @@ const option: ECOption = $ref({
       type: 'bar',
       data: [
         {
-          value: 300,
+          value: 0,
           itemStyle: {
             color: '#8e8e8e'
           },
@@ -47,7 +47,7 @@ const option: ECOption = $ref({
           }
         },
         {
-          value: 200,
+          value: 0,
           itemStyle: {
             color: '#b6ce45'
           },
@@ -57,7 +57,7 @@ const option: ECOption = $ref({
           }
         },
         {
-          value: 500,
+          value: 0,
           itemStyle: {
             color: '#f5b834'
           },
@@ -67,7 +67,7 @@ const option: ECOption = $ref({
           }
         },
         {
-          value: 300,
+          value: 0,
           itemStyle: {
             color: '#2badfa'
           },
@@ -86,6 +86,24 @@ const option: ECOption = $ref({
       },
     }
   ],
+})
+
+interface Props{
+  total: number
+  ratio: number
+}
+
+const { total, ratio } = defineProps<Props>()
+
+// 计算
+watch(() => total, value => (option as any).series[0].data[2].value = value)
+watch(() => ({ total, ratio }), value => {
+  const { total, ratio } = value;
+  const used = Math.floor(total * ratio / 100);
+  const unused = total - used;
+  (option as any).series[0].data[0].value = used;
+  (option as any).series[0].data[1].value = unused;
+  (option as any).series[0].data[3].value = used;
 })
 </script>
 
