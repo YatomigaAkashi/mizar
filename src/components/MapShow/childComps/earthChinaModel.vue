@@ -17,16 +17,18 @@ const modelStore = useModelStore()
 let { satelliteData, stationData } = storeToRefs(modelStore)
 let earthChinaEchart
 let circleData = initTrackData()
-const stationInfos = stationData.value.map((cur) => setData(cur))
-let option = getEarthChinaOption(
-  stationInfos,
-  satelliteData.value,
-  circleData.lowCircleData,
-  circleData.middleCircleData,
-  circleData.highCircleData
-)
+let stationInfos
+let option
 
 onMounted(() => {
+  stationInfos = stationData.value.map((cur) => setData(cur))
+  option = getEarthChinaOption(
+    stationInfos,
+    satelliteData.value,
+    circleData.lowCircleData,
+    circleData.middleCircleData,
+    circleData.highCircleData
+  )
   earthChinaEchart = echarts.init(document.getElementById("earth-china-model"))
   earthChinaEchart.setOption(option)
 })

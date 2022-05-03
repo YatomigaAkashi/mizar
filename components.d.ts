@@ -12,7 +12,7 @@ declare module 'vue' {
     Disk: typeof import('./src/components/Disk.vue')['default']
     Earth: typeof import('./src/components/MapShow/Earth.vue')['default']
     EarthChina: typeof import('./src/components/MapShow/EarthChina.vue')['default']
-    EarthChinaModel: typeof import('./src/components/MapShow/childComps/earthChinaModel.vue')['default']
+    EarthChinaModel: typeof import('./src/components/MapShow/childComps/EarthChinaModel.vue')['default']
     EarthModel: typeof import('./src/components/MapShow/childComps/EarthModel.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']

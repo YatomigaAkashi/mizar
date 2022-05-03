@@ -148,6 +148,16 @@ function getEarthChinaOption(
       max: 3,
     },
     series: [
+      // 地面站
+      {
+        type: "lines",
+        coordinateSystem: "geo",
+        symbol: "circle",
+        symbolSize: 5,
+        opacity: 1,
+        animation: false,
+        data: stationInfos,
+      },
       // 卫星
       {
         type: "scatter3D",
@@ -197,16 +207,6 @@ function getEarthChinaOption(
         },
         silent: true,
         data: highCircleData,
-      },
-      // 地面站
-      {
-        type: "lines",
-        coordinateSystem: "geo",
-        symbol: "circle",
-        symbolSize: 5,
-        opacity: 1,
-        animation: false,
-        data: stationInfos,
       },
     ],
   }
