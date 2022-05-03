@@ -5,7 +5,7 @@
 import { createFetch } from '@vueuse/core'
 
 const useMyFetch = createFetch({
-  baseUrl: 'http://localhost:8080',
+  baseUrl: 'http://49.232.220.125',
   options: {
     afterFetch(ctx) {
       const data = JSON.parse(ctx.data)

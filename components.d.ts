@@ -6,7 +6,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     Container: typeof import('./src/components/Base/Container.vue')['default']
     Cpu: typeof import('./src/components/Cpu.vue')['default']
-    CPU: typeof import('./src/components/CPU.vue')['default']
     DataTransport: typeof import('./src/components/DataTransport.vue')['default']
     Disk: typeof import('./src/components/Disk.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -23,7 +22,6 @@ declare module 'vue' {
     SpaceGoal: typeof import('./src/components/SpaceGoal.vue')['default']
     SpaceTarget: typeof import('./src/components/SideBar/SpaceTarget.vue')['default']
     StationState: typeof import('./src/components/Base/StationState.vue')['default']
-    Test: typeof import('./src/views/Test.vue')['default']
     TimingCenter: typeof import('./src/components/SideBar/TimingCenter.vue')['default']
     Title: typeof import('./src/components/Base/Title.vue')['default']
     WarningDisposal: typeof import('./src/components/WarningDisposal.vue')['default']

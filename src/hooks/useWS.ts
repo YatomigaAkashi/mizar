@@ -8,7 +8,7 @@ const WSOptions: WebSocketOptions = {
   autoReconnect: true
 }
 
-const { data: ws_data } = $(useWebSocket('ws://localhost:8080', WSOptions))
+const { data: ws_data } = $(useWebSocket('ws://49.232.220.125', WSOptions))
 
 // 数据管理
 const { update } = $(useWorkStatusStore())  // 工作状态
