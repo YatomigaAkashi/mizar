@@ -8,6 +8,7 @@
       <div class="content"></div>
     </main>
     <Navigation class="navigation" />
+    <MapShow class="mapshow" />
     <SideBar class="sidebar" />
   </Container>
 </template>
