@@ -11,6 +11,7 @@
     "@vueuse/core": "^8.2.4",
     "autoprefixer": "^10",
     "echarts": "^5.3.1",
+    "echarts-gl": "^2.0.9",
     "element-plus": "^2.1.4",
     "lodash": "^4.17.21",
     "pinia": "^2.0.12",
