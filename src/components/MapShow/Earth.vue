@@ -13,12 +13,11 @@ import { ref, onBeforeMount, watch } from "vue"
 import { storeToRefs } from "pinia"
 import {useModelStore} from '@/store/model'
 
-import initTrackData from "./childComps/js/initTrackData.js"
+import circleData from "./childComps/js/circleData.js"
 import getEarthOption from "./childComps/js/getEarthOption.js"
 import getSatelliteData from "./childComps/js/getSatelliteData.js"
 
 const modelStore = useModelStore()
-let circleData = initTrackData()
 let {satelliteData} = storeToRefs(modelStore)
 let option = ref(
   getEarthOption(

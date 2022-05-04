@@ -9,14 +9,13 @@ import "echarts-gl"
 import { storeToRefs } from "pinia"
 import { useModelStore } from "@/store/model.js"
 
-import initTrackData from "./js/initTrackData.js"
+import circleData from "./js/circleData.js"
 import getEarthChinaOption from "./js/getEarthChinaOption.js"
 import setData from "./js/setData.js"
 
 const modelStore = useModelStore()
 let { satelliteData, stationData } = storeToRefs(modelStore)
 let earthChinaEchart
-let circleData = initTrackData()
 let stationInfos
 let option
 
