@@ -5,7 +5,6 @@
 </template>
 
 <script setup>
-import EarthChinaModel from './childComps/EarthChinaModel.vue';
 </script>
 
 <style>
