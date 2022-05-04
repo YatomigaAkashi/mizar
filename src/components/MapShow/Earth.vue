@@ -13,9 +13,6 @@ import { ref, onBeforeMount, watch } from "vue"
 import { storeToRefs } from "pinia"
 import {useModelStore} from '@/store/model'
 
-import EarthModel from "./childComps/EarthModel.vue"
-import TrackLegend from "./childComps/TrackLegend.vue"
-
 import initTrackData from "./childComps/js/initTrackData.js"
 import getEarthOption from "./childComps/js/getEarthOption.js"
 import getSatelliteData from "./childComps/js/getSatelliteData.js"

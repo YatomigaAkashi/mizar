@@ -6,14 +6,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue"
-
-import ChinaModel from './childComps/ChinaModel.vue'
-import StatusBar from './childComps/StatusBar.vue'
-
-onMounted(() => {
-})
-
 </script>
 
 <style>

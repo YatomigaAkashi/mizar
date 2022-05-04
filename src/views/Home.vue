@@ -5,10 +5,9 @@
   >
     <main class="main">
       <Header class="header" />
-      <div class="content"></div>
+      <MapShow class="mapshow" />
     </main>
     <Navigation class="navigation" />
-    <MapShow class="mapshow" />
     <SideBar class="sidebar" />
   </Container>
 </template>
@@ -65,11 +64,6 @@ watchEffect(() => watchRoute(ctx.$router.currentRoute.value.path))
       width: 100%;
       height: @headerHeight;
       background-color: rgba(255, 255, 255, 0.1);
-    }
-    .content {
-      width: 100%;
-      height: calc(100% - @headerHeight);
-      background-color: rgba(255, 255, 255, 0);
     }
   }
   .navigation {

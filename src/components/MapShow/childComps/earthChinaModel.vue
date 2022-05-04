@@ -33,33 +33,33 @@ onMounted(() => {
   earthChinaEchart.setOption(option)
 })
 
-watch(
-  () => satelliteData.value,
-  (data) => {
-    option = getEarthChinaOption(
-      stationInfos,
-      satelliteData.value,
-      circleData.lowCircleData,
-      circleData.middleCircleData,
-      circleData.highCircleData
-    )
-    earthChinaEchart.setOption(option)
-  }
-)
-watch(
-  () => stationData.value,
-  (data) => {
-    let stationInfos = stationData.value.map((cur) => setData(cur))
-    option = getEarthChinaOption(
-      stationInfos,
-      satelliteData.value,
-      circleData.lowCircleData,
-      circleData.middleCircleData,
-      circleData.highCircleData
-    )
-    earthChinaEchart.setOption(option)
-  }
-)
+// watch(
+//   () => satelliteData.value,
+//   (data) => {
+//     option = getEarthChinaOption(
+//       stationInfos,
+//       satelliteData.value,
+//       circleData.lowCircleData,
+//       circleData.middleCircleData,
+//       circleData.highCircleData
+//     )
+//     earthChinaEchart.setOption(option)
+//   }
+// )
+// watch(
+//   () => stationData.value,
+//   (data) => {
+//     let stationInfos = stationData.value.map((cur) => setData(cur))
+//     option = getEarthChinaOption(
+//       stationInfos,
+//       satelliteData.value,
+//       circleData.lowCircleData,
+//       circleData.middleCircleData,
+//       circleData.highCircleData
+//     )
+//     earthChinaEchart.setOption(option)
+//   }
+// )
 </script>
 
 <style>
