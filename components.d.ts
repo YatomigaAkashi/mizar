@@ -17,6 +17,7 @@ declare module 'vue' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     GroundStation: typeof import('./src/components/SideBar/GroundStation.vue')['default']
+    GroundStationContainer: typeof import('./src/components/SideBar/Child/GroundStationContainer.vue')['default']
     GroundStationInfo: typeof import('./src/components/SideBar/Child/GroundStationInfo.vue')['default']
     Header: typeof import('./src/components/Base/Header.vue')['default']
     Home: typeof import('./src/views/Home.vue')['default']
