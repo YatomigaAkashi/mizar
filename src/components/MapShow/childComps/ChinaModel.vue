@@ -10,11 +10,8 @@ import { chinaMap } from "@/assets/map/china.js"
 import { storeToRefs } from "pinia"
 import { useModelStore } from "@/store/model.js"
 
-import getStationData from './js/getStationData.js'
 import getChinaOption from './js/getChinaOption.js'
 import setData from './js/setData.js'
-
-echarts.registerMap("china", chinaMap)
 
 const modelStore = useModelStore()
 let chinaChart
@@ -34,10 +31,6 @@ onMounted(() => {
     console.log(params)
   })
 })
-
-onBeforeUnmount(() => {
-  // chinaChart.dispose()
-}),
 
 watch(() => stationData.value, (data, oldData) => {
   update(data, chinaChart)
@@ -64,7 +57,7 @@ function update(data, chinaChart) {
 <style>
 #china {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height: 2160px;
+  width: 3840px;
 }
 </style>

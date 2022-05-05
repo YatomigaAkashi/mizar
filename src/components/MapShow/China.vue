@@ -1,25 +1,17 @@
 <template>
-  <div id="chian-container">
+  <div id="china-container">
     <ChinaModel />
     <StatusBar />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from "vue"
-
-import ChinaModel from './childComps/ChinaModel.vue'
-import StatusBar from './childComps/StatusBar.vue'
-
-onMounted(() => {
-})
-
 </script>
 
-<style>
+<style scoped>
 #china-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
+  height: 2160px;
+  width: 3840px;
+  position: absolute;
 }
 </style>
