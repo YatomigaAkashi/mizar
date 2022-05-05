@@ -16,15 +16,20 @@ function initWorkStatus(): WorkStatus {
 const { data } = useMyFetch('/preWorkStatus') as any
 
 export const useWorkStatusStore = defineStore('workStatus', () => {
-  let workStatusList: WorkStatus[] = $ref(data || [])
+  let workStatusList: WorkStatus[] = $ref(data)
   let workStatus: WorkStatus = $ref(initWorkStatus())
 
   // 更新数据
   const update = (data: WorkStatus) => {
-    workStatusList.shift()
-    workStatusList = [...workStatusList, data]
-    workStatus = data
+    if(workStatusList !== undefined) {
+      workStatusList.shift()
+      workStatusList = [...workStatusList, data]
+      workStatus = data
+    }
   }
+
+  // 初始化数据
+  watch(() => data, value => workStatusList = value)
 
   return $$({
     workStatusList, workStatus,
