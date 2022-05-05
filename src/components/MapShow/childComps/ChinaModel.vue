@@ -57,7 +57,7 @@ function update(data, chinaChart) {
 <style>
 #china {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height: 2160px;
+  width: 3840px;
 }
 </style>

@@ -3,7 +3,7 @@ function getChinaOption(stationInfos) {
     geo: {
       type: "map",
       map: "china",
-      layoutCenter: ["50%", "55%"],
+      layoutCenter: ["42%", "55%"],
       layoutSize: 1700,
       itemStyle: {
         areaColor: "#194CB4",

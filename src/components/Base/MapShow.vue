@@ -6,7 +6,7 @@
     <div v-show="path.includes('/space-target')">
       <Earth />
     </div>
-    <div v-show="path.includes('/ground-station')">
+    <div v-show="path.includes('/ground-station')" style="position: relative;">
       <China />
     </div>
   </div>
