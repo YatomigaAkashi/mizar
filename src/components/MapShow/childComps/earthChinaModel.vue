@@ -3,71 +3,75 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch, onBeforeUnmount } from "vue"
 import * as echarts from "echarts"
-import "echarts-gl"
-import { storeToRefs } from "pinia"
 import { useModelStore } from "@/store/model.js"
-
-import initTrackData from "./js/initTrackData.js"
-import getEarthChinaOption from "./js/getEarthChinaOption.js"
+import { earthChinaOption } from "./js/getEarthChinaOption.js"
+import circleData from "./js/circleData.js"
 import setData from "./js/setData.js"
-import { sleep } from "@antfu/utils"
 
-const modelStore = useModelStore()
-let { satelliteData, stationData } = storeToRefs(modelStore)
+let { satelliteData, stationData } = $(useModelStore())
 let earthChinaEchart
-let circleData = initTrackData()
-let stationInfos
-let option
+
+// 初始化echart实例
+const initEarthChinaEchart = () => {
+  earthChinaEchart = echarts.init(document.getElementById("earth-china-model"))
+  earthChinaEchart.setOption(earthChinaOption)
+}
+
+// 设置轨道数据
+const setOrbitalData = () => {
+  earthChinaEchart && earthChinaEchart.setOption({
+    series: [
+      {
+        name: "low",
+        data: circleData.lowCircleData
+      },
+      {
+        name: "middle",
+        data: circleData.middleCircleData
+      },
+      {
+        name: "high",
+        data: circleData.highCircleData
+      }
+    ]
+  })
+}
+
+// 设置地面站数据
+const setStationData = value => {
+  earthChinaEchart && earthChinaEchart.setOption({
+    series: [{
+      name: "station",
+      data: value.map((cur) => setData(cur))
+    }]
+  })
+}
+
+// 设置卫星数据
+const setSatelliteData = value => {
+  earthChinaEchart && earthChinaEchart.setOption({
+    series: [{
+      name: "satellite",
+      data: value
+    }]
+  })
+}
 
 onMounted(() => {
-  stationInfos = stationData.value.map((cur) => setData(cur))
-  option = getEarthChinaOption(
-    stationInfos,
-    satelliteData.value,
-    circleData.lowCircleData,
-    circleData.middleCircleData,
-    circleData.highCircleData
-  )
-  console.time("timer")
-  for (let i = 0; i < 1000000; i++) {}
-  console.timeEnd("timer")
-  earthChinaEchart = echarts.init(document.getElementById("earth-china-model"))
-  earthChinaEchart.setOption(option)
+  initEarthChinaEchart()
+  setOrbitalData()
+  setStationData(stationData)
+  setSatelliteData(satelliteData)
 })
 
-onBeforeUnmount(() => {
-  // earthChinaEchart.dispose()
+onUnmounted(() => {
+  earthChinaEchart.dispose()
+  earthChinaEchart = null
 })
 
-watch(
-  () => satelliteData.value,
-  (data) => {
-    option = getEarthChinaOption(
-      stationInfos,
-      satelliteData.value,
-      circleData.lowCircleData,
-      circleData.middleCircleData,
-      circleData.highCircleData
-    )
-    earthChinaEchart.setOption(option)
-  }
-)
-watch(
-  () => stationData.value,
-  (data) => {
-    let stationInfos = stationData.value.map((cur) => setData(cur))
-    option = getEarthChinaOption(
-      stationInfos,
-      satelliteData.value,
-      circleData.lowCircleData,
-      circleData.middleCircleData,
-      circleData.highCircleData
-    )
-    earthChinaEchart.setOption(option)
-  }
-)
+watch(() => stationData,setStationData)
+watch(() => satelliteData, setSatelliteData)
 </script>
 
 <style>

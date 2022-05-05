@@ -1,29 +1,21 @@
 <template>
   <div class="map-show">
-    <div v-if="path.includes('/timing-center')">
+    <div v-show="path.includes('/timing-center') || path.includes('/working-status')">
       <EarthChina />
     </div>
-    <div v-else-if="path.includes('/space-target')">
+    <div v-show="path.includes('/space-target')">
       <Earth />
     </div>
-    <div v-else-if="path.includes('/ground-station')">
+    <div v-show="path.includes('/ground-station')" style="position: relative;">
       <China />
-    </div>
-    <div v-else-if="path.includes('/working-status')">
-      <EarthChina />
     </div>
   </div>
 </template>
 
 <script setup>
-import useCurrentInstance from '@/hooks/useCurrentInstance';
-import { useWebSocket } from '@vueuse/core'
-import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
+import useCurrentInstance from '@/hooks/useCurrentInstance';
 import { useModelStore } from '@/store/model';
-
-// import getStationData from '../MapShow/childComps/js/getStationData.js';
-// import getSatelliteData from '../MapShow/childComps/js/getSatelliteData.js';
 
 const {ctx} = useCurrentInstance()
 const path = $computed(() => ctx.$router.currentRoute.value.path)
