@@ -17,6 +17,7 @@
 
 <script setup>
 import useCurrentInstance from '@/hooks/useCurrentInstance';
+import { useWebSocket } from '@vueuse/core'
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useModelStore } from '@/store/model';

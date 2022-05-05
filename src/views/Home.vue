@@ -15,10 +15,10 @@
 
 <script setup lang="ts">
 import useTimeUpdate from '@/hooks/useTimeUpdate'
+import useWS from '@/hooks/useWS'
 import useCurrentInstance from '@/hooks/useCurrentInstance'
 import { useSideBarStore } from '@/store/sidebar'
 
-import MapShow from '../components/Base/MapShow.vue'
 
 // 画布基本大小
 const containerOptions = {
@@ -26,7 +26,9 @@ const containerOptions = {
   height: 2160
 }
 
-//开启时间自动更新
+// 开启websocket
+useWS()
+// 开启时间自动更新
 useTimeUpdate()
 
 // 监听路由变花
@@ -39,9 +41,7 @@ const watchRoute = (path: string) => {
 }
 const { toggleShow } = $(useSideBarStore())
 const { ctx } = useCurrentInstance()
-const path = $computed(() => ctx.$router.currentRoute.value.path)
-watchRoute(path)
-watch(() => path, watchRoute)
+watchEffect(() => watchRoute(ctx.$router.currentRoute.value.path))
 </script>
 
 <style lang="less" scoped>
@@ -81,7 +81,6 @@ watch(() => path, watchRoute)
     color: #fff;
     border: 2px solid #3a8ee6;
     box-shadow: 20px 20px 20px rgba(28, 89, 157, 0.5) inset, -20px -20px 20px rgba(28, 89, 157, 0.5) inset;
-    z-index: 1;
   }
   .sidebar {
     width: 30%;

@@ -4,19 +4,19 @@
       <img src="@/assets/images/radar.gif" alt="">
       <div class="state-list">
         <div>
-          <span>待复核 <span style="color: #00f0ff;font-size: 38px;">{{ warningDisposalState.waiting }}</span> 项</span>
+          <span>待复核 <span style="color: #00f0ff;font-size: 38px;">{{ waiting }}</span> 项</span>
           <el-button class="button" type="primary" color="#0593bc" round>处置</el-button>
         </div>
         <div>
-          <span>已复核 <span style="color: #06f10c;font-size: 38px;">{{ warningDisposalState.reviewed }}</span> 项</span>
+          <span>已复核 <span style="color: #06f10c;font-size: 38px;">{{ review }}</span> 项</span>
           <el-button class="button button-view" type="primary" color="#0a3d6a" round>查看</el-button>
         </div>
         <div>
-          <span>上报 <span style="color: #ef0535;font-size: 38px;">{{ warningDisposalState.reported }}</span> 项</span>
+          <span>上报 <span style="color: #ef0535;font-size: 38px;">{{ report }}</span> 项</span>
           <el-button class="button button-view" type="primary" color="#0a3d6a" round>查看</el-button>
         </div>
         <div>
-          <span>解除 <span style="color: #ef0535;font-size: 38px;">{{ warningDisposalState.lifted }}</span> 项</span>
+          <span>解除 <span style="color: #ef0535;font-size: 38px;">{{ remove }}</span> 项</span>
           <el-button class="button button-view" type="primary" color="#0a3d6a" round>查看</el-button>
         </div>
       </div>
@@ -31,10 +31,13 @@
         </thead>
       </table>
       <el-scrollbar height="360px">
-        <div class="content" v-for="(item, index) in warningDisposalList">
+        <div class="content" v-for="(item, index) in data">
           <div class="serial">{{ index + 1 }}</div>
           <div style="width: 2px;background: transparent;"></div>
-          <div class="info">{{ item.msg }}&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #02d4e6;cursor: pointer;">详情>></span></div>
+          <div class="info">
+            <div class="warn-data">{{ item.warn_data }}</div>
+            <span>详情>></span>
+          </div>
         </div>
       </el-scrollbar>
     </div>
@@ -42,9 +45,38 @@
 </template>
 
 <script setup lang="ts">
-import useScreenData from '@/hooks/useScreenData'
+import { WarnType, WarningInfo } from '@/typings'
+import useMyFetch from '@/hooks/useMyFetch'
 
-const { warningDisposalState, warningDisposalList } = useScreenData()
+let waiting = $ref(0)
+let review = $ref(0)
+let report = $ref(0)
+let remove = $ref(0)
+
+const update = (data: WarningInfo[]) => {
+  if(data) {
+    for (const item of data) {
+      switch (item.warn_data_type) {
+        case WarnType.waiting:
+          waiting++
+          break
+        case WarnType.review:
+          review++
+          break
+        case WarnType.report:
+          report++
+          break
+        case WarnType.remove:
+          remove++
+          break
+        default:
+      }
+    }
+  }
+}
+
+const { data } = useMyFetch('/waringInfo')
+watch(data as any, update)
 </script>
 
 <style lang="less" scoped>
@@ -111,6 +143,23 @@ const { warningDisposalState, warningDisposalList } = useScreenData()
       .info {
         width: calc(100% - 206px);
         background: @bck-color-shallower;
+        .warn-data {
+          width: calc(100% - 200px);
+          float: left;
+          margin-left: 40px;
+          text-align: left;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          word-break: break-all;
+        }
+        span {
+          width: 100px;
+          float: right;
+          margin-right: 40px;
+          color: #02d4e6;
+          cursor: pointer;
+        }
       }
     }
   }
