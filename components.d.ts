@@ -7,9 +7,19 @@ declare module 'vue' {
     China: typeof import('./src/components/MapShow/China.vue')['default']
     ChinaModel: typeof import('./src/components/MapShow/childComps/ChinaModel.vue')['default']
     Container: typeof import('./src/components/Base/Container.vue')['default']
+<<<<<<< HEAD
+    Cpu: typeof import('./src/components/Cpu.vue')['default']
+<<<<<<< HEAD
+    CPU: typeof import('./src/components/CPU.vue')['default']
+=======
+>>>>>>> master
+    DataTransport: typeof import('./src/components/DataTransport.vue')['default']
+    Disk: typeof import('./src/components/Disk.vue')['default']
+=======
     Cpu: typeof import('./src/components/SideBar/Child/Cpu.vue')['default']
     DataTransport: typeof import('./src/components/SideBar/Child/DataTransport.vue')['default']
     Disk: typeof import('./src/components/SideBar/Child/Disk.vue')['default']
+>>>>>>> master
     Earth: typeof import('./src/components/MapShow/Earth.vue')['default']
     EarthChina: typeof import('./src/components/MapShow/EarthChina.vue')['default']
     EarthChinaModel: typeof import('./src/components/MapShow/childComps/earthChinaModel.vue')['default']

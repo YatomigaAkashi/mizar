@@ -35,6 +35,10 @@ onMounted(() => {
   })
 })
 
+onBeforeUnmount(() => {
+  // chinaChart.dispose()
+}),
+
 watch(() => stationData.value, (data, oldData) => {
   update(data, chinaChart)
 })

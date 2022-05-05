@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from "vue"
+import { onMounted, ref, watch, onBeforeUnmount } from "vue"
 import * as echarts from "echarts"
 import "echarts-gl"
 import { storeToRefs } from "pinia"
@@ -12,6 +12,7 @@ import { useModelStore } from "@/store/model.js"
 import initTrackData from "./js/initTrackData.js"
 import getEarthChinaOption from "./js/getEarthChinaOption.js"
 import setData from "./js/setData.js"
+import { sleep } from "@antfu/utils"
 
 const modelStore = useModelStore()
 let { satelliteData, stationData } = storeToRefs(modelStore)
@@ -29,8 +30,15 @@ onMounted(() => {
     circleData.middleCircleData,
     circleData.highCircleData
   )
+  console.time("timer")
+  for (let i = 0; i < 1000000; i++) {}
+  console.timeEnd("timer")
   earthChinaEchart = echarts.init(document.getElementById("earth-china-model"))
   earthChinaEchart.setOption(option)
+})
+
+onBeforeUnmount(() => {
+  // earthChinaEchart.dispose()
 })
 
 watch(
