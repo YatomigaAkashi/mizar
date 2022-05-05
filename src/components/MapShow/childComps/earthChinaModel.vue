@@ -5,60 +5,60 @@
 <script setup>
 import { onMounted, ref, watch } from "vue"
 import * as echarts from "echarts"
-import "echarts-gl"
-import { storeToRefs } from "pinia"
 import { useModelStore } from "@/store/model.js"
 
+import { earthChinaOption } from "./js/getEarthChinaOption.js"
 import circleData from "./js/circleData.js"
-import getEarthChinaOption from "./js/getEarthChinaOption.js"
 import setData from "./js/setData.js"
 
-const modelStore = useModelStore()
-let { satelliteData, stationData } = storeToRefs(modelStore)
+let { satelliteData, stationData } = $(useModelStore())
 let earthChinaEchart
-let stationInfos
-let option
 
 onMounted(() => {
-  stationInfos = stationData.value.map((cur) => setData(cur))
-  option = getEarthChinaOption(
-    stationInfos,
-    satelliteData.value,
-    circleData.lowCircleData,
-    circleData.middleCircleData,
-    circleData.highCircleData
-  )
   earthChinaEchart = echarts.init(document.getElementById("earth-china-model"))
-  earthChinaEchart.setOption(option)
+  earthChinaEchart.setOption(earthChinaOption)
+  earthChinaEchart.setOption({
+    series: [
+      {
+        name: "low",
+        data: circleData.lowCircleData
+      },
+      {
+        name: "middle",
+        data: circleData.middleCircleData
+      },
+      {
+        name: "high",
+        data: circleData.highCircleData
+      }
+    ]
+  })
 })
 
-// watch(
-//   () => satelliteData.value,
-//   (data) => {
-//     option = getEarthChinaOption(
-//       stationInfos,
-//       satelliteData.value,
-//       circleData.lowCircleData,
-//       circleData.middleCircleData,
-//       circleData.highCircleData
-//     )
-//     earthChinaEchart.setOption(option)
-//   }
-// )
-// watch(
-//   () => stationData.value,
-//   (data) => {
-//     let stationInfos = stationData.value.map((cur) => setData(cur))
-//     option = getEarthChinaOption(
-//       stationInfos,
-//       satelliteData.value,
-//       circleData.lowCircleData,
-//       circleData.middleCircleData,
-//       circleData.highCircleData
-//     )
-//     earthChinaEchart.setOption(option)
-//   }
-// )
+onUnmounted(() => {
+  earthChinaEchart.dispose()
+  earthChinaEchart = null
+})
+
+watch(() => stationData,value => {
+  console.log("station")
+  earthChinaEchart.setOption({
+    series: [{
+      name: "station",
+      data: value.map((cur) => setData(cur))
+    }]
+  })
+})
+
+watch(() => satelliteData, value => {
+  console.log("satellite")
+  earthChinaEchart.setOption({
+    series: [{
+      name: "satellite",
+      data: value
+    }]
+  })
+})
 </script>
 
 <style>

@@ -41,16 +41,6 @@ let otherData = [
     },
   },
 ]
-// setTimeout(() => {
-//   console.log(1)
-//   satelliteData.value.push(otherData[0])
-//   option.value = getEarthOption(
-//     satelliteData,
-//     circleData.lowCircleData,
-//     circleData.middleCircleData,
-//     circleData.highCircleData
-//   )
-// }, 5000)
 
 watch(() => satelliteData.value, (data, oldData) => {
   option.value = getEarthOption(

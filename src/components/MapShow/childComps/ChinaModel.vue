@@ -14,8 +14,6 @@ import getStationData from './js/getStationData.js'
 import getChinaOption from './js/getChinaOption.js'
 import setData from './js/setData.js'
 
-echarts.registerMap("china", chinaMap)
-
 const modelStore = useModelStore()
 let chinaChart
 let option

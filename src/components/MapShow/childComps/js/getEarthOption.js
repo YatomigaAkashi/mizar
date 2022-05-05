@@ -1,60 +1,7 @@
-import * as echarts from "echarts"
-import { worldMap } from "@/assets/map/world"
-
-let baseTexture
-
-echarts.registerMap("world", worldMap)
-
-// 生成球面纹理
-function getBaseTexture() {
-  let canvas = document.createElement("canvas")
-  baseTexture = echarts.init(canvas, null, {
-    width: 4096,
-    height: 2048,
-  })
-  baseTexture.setOption({
-    backgroundColor: "#031c48",
-    geo: {
-      type: "map",
-      map: "world",
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      roam: false,
-      boundingCoords: [
-        [-180, 90],
-        [180, -90],
-      ],
-      itemStyle: {
-        areaColor: "#2455ad",
-        borderColor: "#000c2d",
-      },
-      emphasis: {
-        disabled: true,
-      },
-    },
-  })
-}
+import baseTexture from '@/utils/texture'
 
 // 格式化卫星信息
 function formmaterInfo(params) {
-  // if (params.data.no[params.data.no.length - 1] === "*") {
-  //   return `
-  //     卫星编号: ${params.data.no.slice(0, -1)}\n
-  //     重点关注: ${params.data.focusNo}\n
-  //     轨道类型: ${
-  //       params.data.trackType === "low"
-  //         ? "低轨"
-  //         : params.data.trackType === "middle"
-  //         ? "中轨"
-  //         : "高轨"
-  //     }\n
-  //     TLE信息: ${params.data.tleInfo}
-  //     `
-  // }
-  // return ` `
-
   return `
       卫星编号: ${params.data.no}\n
       重点关注: ${params.data.focusNo}\n
@@ -77,7 +24,6 @@ function getEarthOption(
 ) {
   // console.log(satelliteData);
   // 生成球面纹理
-  getBaseTexture()
 
   return {
     globe: {

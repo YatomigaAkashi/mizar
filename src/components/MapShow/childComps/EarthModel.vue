@@ -5,13 +5,6 @@
 <script setup>
 import { onMounted, watch } from "vue"
 import * as echarts from "echarts"
-import "echarts-gl"
-import { worldMap } from "@/assets/map/world"
-
-import getEarthOption from "./js/getEarthOption.js"
-
-// 注册世界地图
-echarts.registerMap("world", worldMap)
 
 const props = defineProps({
   satelliteData: Array,
