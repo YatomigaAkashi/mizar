@@ -1,12 +1,12 @@
 <template>
   <div class="map-show">
-    <div v-if="path.includes('/timing-center') || path.includes('/working-status')">
+    <div v-show="path.includes('/timing-center') || path.includes('/working-status')">
       <EarthChina />
     </div>
-    <div v-else-if="path.includes('/space-target')">
+    <div v-show="path.includes('/space-target')">
       <Earth />
     </div>
-    <div v-else-if="path.includes('/ground-station')">
+    <div v-show="path.includes('/ground-station')">
       <China />
     </div>
   </div>

@@ -10,7 +10,6 @@ import { chinaMap } from "@/assets/map/china.js"
 import { storeToRefs } from "pinia"
 import { useModelStore } from "@/store/model.js"
 
-import getStationData from './js/getStationData.js'
 import getChinaOption from './js/getChinaOption.js'
 import setData from './js/setData.js'
 
