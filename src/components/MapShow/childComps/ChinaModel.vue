@@ -20,16 +20,14 @@ const {stationData} = storeToRefs(modelStore)
 const stationInfos = stationData.value.map((cur) => setData(cur))
 
 onMounted(() => {
-  chinaChart = echarts.init(document.getElementById("china"))
-  option = getChinaOption(stationInfos)
-
-  // setInterval(() => {
-  //   stationData.value[0].status = stationData.value[0].status === "normal" ? "error" : "normal"
-  // }, 5000)
-  chinaChart.setOption(option)
-  chinaChart.on("click", (params) => {
-    console.log(params)
-  })
+  setTimeout(() => {
+    chinaChart = echarts.init(document.getElementById("china"))
+    option = getChinaOption(stationInfos)
+    chinaChart.setOption(option)
+    chinaChart.on("click", (params) => {
+      console.log(params)
+    })
+  }, 0)
 })
 
 watch(() => stationData.value, (data, oldData) => {

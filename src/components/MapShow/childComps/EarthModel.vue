@@ -64,10 +64,12 @@ const setSatelliteData = value => {
 }
 
 onMounted(() => {
-  initEarthEchart()
-  initHandleClick()
-  setOrbitalData()
-  setSatelliteData()
+  setTimeout(() => {
+    initEarthEchart()
+    initHandleClick()
+    setOrbitalData()
+    setSatelliteData()
+  }, 0)
 })
 
 watch(() => satelliteData, setSatelliteData)

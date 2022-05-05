@@ -3,12 +3,10 @@
       :options="containerOptions"
       class="content"
   >
-    <main class="main">
-      <Header class="header" />
-      <MapShow class="mapshow" />
-    </main>
+    <Header class="header" />
     <Navigation class="navigation" />
     <SideBar class="sidebar" />
+    <MapShow class="mapshow" style="z-index: -99"/>
   </Container>
 </template>
 
@@ -56,15 +54,10 @@ watchEffect(() => watchRoute(ctx.$router.currentRoute.value.path))
   background-repeat: no-repeat;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato, Roboto, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
-  .main {
+  .header {
     width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    .header {
-      width: 100%;
-      height: @headerHeight;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+    height: @headerHeight;
+    background-color: rgba(255, 255, 255, 0.1);
   }
   .navigation {
     width: 260px;

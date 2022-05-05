@@ -59,10 +59,12 @@ const setSatelliteData = value => {
 }
 
 onMounted(() => {
-  initEarthChinaEchart()
-  setOrbitalData()
-  setStationData(stationData)
-  setSatelliteData(satelliteData)
+  setTimeout(() => {
+    initEarthChinaEchart()
+    setOrbitalData()
+    setStationData(stationData)
+    setSatelliteData(satelliteData)
+  }, 0)
 })
 
 onUnmounted(() => {
