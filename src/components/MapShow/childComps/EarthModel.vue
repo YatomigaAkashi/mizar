@@ -34,6 +34,10 @@ onMounted(() => {
   })
 })
 
+onBeforeUnmount(() => {
+  // earthEchart.dispose()
+}),
+
 watch(
   () => props.option,
   (count, precount) => {

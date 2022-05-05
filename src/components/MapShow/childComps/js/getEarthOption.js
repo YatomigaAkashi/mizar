@@ -157,7 +157,7 @@ function getEarthOption(
         //   color: "#fff",
         //   fontSize: 18,
         //   fontFamily: "微软雅黑",
-        // },
+        // }, 
         emphasis: {
           label: {
             show: true,
