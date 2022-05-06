@@ -17,6 +17,11 @@ let earthEchart
 // 初始化echart实例
 const initEarthEchart = () => {
   earthEchart = echarts.init(document.getElementById("earth"))
+  const option = earthOption
+  option.series[0].data = satelliteData
+  option.series[1].data = circleData.lowCircleData
+  option.series[2].data = circleData.middleCircleData
+  option.series[3].data = circleData.highCircleData
   earthEchart.setOption(earthOption)
 }
 
@@ -33,25 +38,12 @@ const initHandleClick = () => {
   })
 }
 
-// 设置轨道数据
-const setOrbitalData = () => {
-   earthEchart.setOption({
-    series: [
-      {
-        name: "low",
-        data: circleData.lowCircleData
-      },
-      {
-        name: "middle",
-        data: circleData.middleCircleData
-      },
-      {
-        name: "high",
-        data: circleData.highCircleData
-      }
-    ]
-  })
-}
+onMounted(() => {
+  setTimeout(() => {
+    initEarthEchart()
+    initHandleClick()
+  }, 0)
+})
 
 // 设置卫星数据
 const setSatelliteData = value => {
@@ -62,16 +54,7 @@ const setSatelliteData = value => {
     }]
   })
 }
-
-onMounted(() => {
-  setTimeout(() => {
-    initEarthEchart()
-    initHandleClick()
-    setOrbitalData()
-    setSatelliteData()
-  }, 0)
-})
-
+// 更新卫星数据
 watch(() => satelliteData, setSatelliteData)
 
 // 基本轨道配置
