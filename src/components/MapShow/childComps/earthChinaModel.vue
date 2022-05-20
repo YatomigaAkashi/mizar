@@ -15,28 +15,25 @@ let earthChinaEchart
 // 初始化echart实例
 const initEarthChinaEchart = () => {
   earthChinaEchart = echarts.init(document.getElementById("earth-china-model"))
+  const option = earthChinaOption
+  option.series[0].data = stationData.map((cur) => setData(cur))
+  option.series[1].data = satelliteData
+  option.series[2].data = circleData.lowCircleData
+  option.series[3].data = circleData.middleCircleData
+  option.series[4].data = circleData.highCircleData
   earthChinaEchart.setOption(earthChinaOption)
 }
 
-// 设置轨道数据
-const setOrbitalData = () => {
-  earthChinaEchart && earthChinaEchart.setOption({
-    series: [
-      {
-        name: "low",
-        data: circleData.lowCircleData
-      },
-      {
-        name: "middle",
-        data: circleData.middleCircleData
-      },
-      {
-        name: "high",
-        data: circleData.highCircleData
-      }
-    ]
-  })
-}
+onMounted(() => {
+  setTimeout(() => {
+    initEarthChinaEchart()
+  }, 0)
+})
+
+onUnmounted(() => {
+  earthChinaEchart.dispose()
+  earthChinaEchart = null
+})
 
 // 设置地面站数据
 const setStationData = value => {
@@ -57,18 +54,6 @@ const setSatelliteData = value => {
     }]
   })
 }
-
-onMounted(() => {
-  initEarthChinaEchart()
-  setOrbitalData()
-  setStationData(stationData)
-  setSatelliteData(satelliteData)
-})
-
-onUnmounted(() => {
-  earthChinaEchart.dispose()
-  earthChinaEchart = null
-})
 
 watch(() => stationData,setStationData)
 watch(() => satelliteData, setSatelliteData)

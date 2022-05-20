@@ -1,5 +1,6 @@
 import * as echarts from 'echarts'
 
+// TODO: 生成纹理需144ms
 let canvas = document.createElement("canvas")
 let baseTexture = echarts.init(canvas, null, {
   width: 4096,
