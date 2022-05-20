@@ -73,7 +73,7 @@ onMounted(() => {
 watch(() => satelliteData, setSatelliteData)
 
 // 基本轨道配置
-const getOrbitaSeries = value => [
+const getOrbitalSeries = value => [
   {
     name: "low",
     data: value === "low" ? circleData.lowCircleData : []
@@ -94,7 +94,7 @@ watch(() => filter, value => {
     setOrbitalData()
     setSatelliteData(satelliteData)
   } else {
-    earthEchart.setOption({ series: getOrbitaSeries(value) })
+    earthEchart.setOption({ series: getOrbitalSeries(value) })
     setSatelliteData(satelliteData.filter(i => i.trackType === value))
   }
 })

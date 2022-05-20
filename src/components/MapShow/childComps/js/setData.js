@@ -1,6 +1,6 @@
 function setData({ name, coord, image, status }) {
   /*
-    status: 卫星站状态
+    status: 地面站站状态
     normal: 连接良好 | unconnected 未连接 | error 故障
   */
   switch (status) {

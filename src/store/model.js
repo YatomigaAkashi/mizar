@@ -5,20 +5,20 @@ export const useModelStore = defineStore("model", {
     return {
       stationData: [
         {
-          name: '河北卫星站',
-          coord: [115.502461, 38.045474],
+          name: '西藏卫星站',
+          coord: [91.132212, 29.660361],
           image: '/src/assets/卫星站1.png',
           status: 'normal'
         },
         {
-          name: '青海卫星站',
-          coord: [101.778916, 36.623178],
+          name: '四川卫星站',
+          coord: [104.065735, 30.659462],
           image: '/src/assets/卫星站1.png',
           status: 'error'
         },
         {
-          name: '新疆卫星站',
-          coord: [87.617733, 43.792818],
+          name: '安徽卫星站',
+          coord: [117.283042, 31.86119],
           image: '/src/assets/卫星站1.png',
           status: 'unconnected'
         }

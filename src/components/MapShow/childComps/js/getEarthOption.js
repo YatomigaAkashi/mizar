@@ -7,7 +7,7 @@ export const earthOption = {
     baseTexture: baseTexture,
     shading: "color",
     viewControl: {
-      rotateSensitivity: 0,
+      // rotateSensitivity: 0,
       autoRotate: false,
     }
   },

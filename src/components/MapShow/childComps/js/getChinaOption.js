@@ -5,6 +5,7 @@ function getChinaOption(stationInfos) {
       map: "china",
       layoutCenter: ["42%", "55%"],
       layoutSize: 1700,
+      roam: true,
       itemStyle: {
         areaColor: "#194CB4",
         borderWidth: 1,
