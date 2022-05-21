@@ -17,7 +17,7 @@
       <use xlink:href="#circle-single" x="320" y="-240"/>
       <use xlink:href="#circle-single" x="310" y="280"/>
       <use xlink:href="#circle-single" x="-420" y="-20"/>
-      <text class="text" x="500" y="460">空间目标</text>
+      <text class="text" x="500" y="460">总计</text>
       <text class="text number" x="500" y="560">{{ total }}</text>
       <text class="text single" x="820" y="230">高轨</text>
       <text class="text single number-single" x="820" y="305">{{ high }}</text>

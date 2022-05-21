@@ -1,5 +1,5 @@
 <template>
-  <MizarBreadcrumb content="授时中心" />
+  <MizarBreadcrumb content="工作状态" />
   <Title>内存使用情况</Title>
   <Memory :total="memory" :ratio="memoryUsage" />
   <Title>CPU使用情况</Title>

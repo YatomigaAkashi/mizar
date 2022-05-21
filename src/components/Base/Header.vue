@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="title">
-      中国科学院国家授时中心
+      这里是标题
     </div>
     <div class="time-week-date">
       <div class="time">{{ time }}</div>

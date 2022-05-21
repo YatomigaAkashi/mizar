@@ -6,23 +6,23 @@
     </div>
     <div class="info">
       <div class="row">
-        <div class="target">天线口径 :</div>
+        <div class="target">xxx :</div>
         <div>{{ groundStationInfo.caliber }} ;</div>
       </div>
       <div class="row">
-        <div class="target">接收工作频率 :</div>
+        <div class="target">xxx :</div>
         <div class="content" >
           <template v-for="value in groundStationInfo.frequency">{{ value }} ;<br/></template>
         </div>
       </div>
       <div class="row">
-        <div class="target">极化方式 :</div>
+        <div class="target">xxx :</div>
         <div class="content" >
           <template v-for="value in groundStationInfo.polarization">{{ value }} ;<br/></template>
         </div>
       </div>
       <div class="row">
-        <div class="target">接收系统G/T值 :</div>
+        <div class="target">xxx :</div>
         <div>{{ groundStationInfo['G/T'] }} ;</div>
       </div>
     </div>

@@ -8,7 +8,7 @@
             :fill="timingFill"
           />
         </svg>
-        <div>授时中心</div>
+        <div>主页</div>
       </router-link>
       <router-link to="/home/space-target">
         <svg class="icon" viewBox="0 0 1024 1024">
@@ -29,7 +29,7 @@
               :fill="spaceFill"
           />
         </svg>
-        <div>空间目标</div>
+        <div>卫星</div>
       </router-link>
       <router-link to="/home/ground-station">
         <svg class="icon" viewBox="0 0 1024 1024">

@@ -2,10 +2,10 @@
   <div class="table">
     <div class="header">
       <div>卫星编号</div>
-      <div>重点关注</div>
+      <div>xxx</div>
       <div>轨道类型</div>
-      <div>TLE</div>
-      <div>频谱图</div>
+      <div>xxx</div>
+      <div>xxx</div>
     </div>
     <el-scrollbar class="list">
       <div class="line" :line="`line-${index % 2}`" v-for="(item, index) in targetSatelliteList">

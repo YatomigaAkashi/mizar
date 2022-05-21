@@ -1,10 +1,10 @@
 <template>
-  <MizarBreadcrumb :content="['授时中心', '地面站']" />
-  <Title>洛南卫星便携地面站信息</Title>
+  <MizarBreadcrumb :content="['主页', '地面站']" />
+  <Title>xxx地面站信息</Title>
   <GroundStationInfo />
-  <Title>数据管理软件</Title>
+  <Title>传输进度</Title>
   <DataTransport />
-  <Title>目标卫星</Title>
+  <Title>卫星</Title>
   <SatelliteList />
 </template>
 

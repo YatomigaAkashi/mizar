@@ -1,8 +1,8 @@
 <template>
-  <MizarBreadcrumb content="授时中心" />
+  <MizarBreadcrumb content="主页" />
   <Title>地面站</Title>
   <GroundStationContainer />
-  <Title>空间目标</Title>
+  <Title>卫星</Title>
   <SpaceGoal />
   <Title>预警处置</Title>
   <WarningDisposal />
