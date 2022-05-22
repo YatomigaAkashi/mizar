@@ -72,6 +72,27 @@ const getOrbitalSeries = value => [
     data: value === "high" ? circleData.highCircleData : []
   }
 ]
+
+// 设置轨道数据
+const setOrbitalData = () => {
+  earthEchart.setOption({
+    series: [
+      {
+        name: "low",
+        data: circleData.lowCircleData
+      },
+      {
+        name: "middle",
+        data: circleData.middleCircleData
+      },
+      {
+        name: "high",
+        data: circleData.highCircleData
+      }
+    ]
+  })
+}
+
 // 轨道线过滤
 watch(() => filter, value => {
   if(!earthEchart) return;

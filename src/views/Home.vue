@@ -6,7 +6,7 @@
     <Header class="header" />
     <Navigation class="navigation" />
     <SideBar class="sidebar" />
-    <MapShow class="mapshow" style="z-index: -99"/>
+     <!-- <MapShow class="mapshow" style="z-index: -99"/> -->
   </Container>
 </template>
 
